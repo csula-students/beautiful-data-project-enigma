@@ -14,7 +14,7 @@ public class StackOverflowSource extends DefaultHandler {
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 
 		if (qName.equalsIgnoreCase("row")) {
-			Integer id = Integer.parseInt(attributes.getValue("Id"));
+			Integer Id = Integer.parseInt(attributes.getValue("Id"));
 			String PostTypeId = attributes.getValue("PostTypeId");
 			String AcceptedAnswerId = attributes.getValue("AcceptedAnswerId");
 			String ExcerptPostId = attributes.getValue("ExcerptPostId");
@@ -38,7 +38,7 @@ public class StackOverflowSource extends DefaultHandler {
 			// inserting the parsed data into the database
 			try {
 				org.bson.Document document = new Document();
-				document.put("Id", id);
+				document.put("Id", Id);
 				document.put("PostTypeId", PostTypeId);
 				document.put("AcceptedAnswerId", AcceptedAnswerId);
 				document.put("ExcerptPostId", ExcerptPostId);
@@ -55,6 +55,7 @@ public class StackOverflowSource extends DefaultHandler {
 				document.put("Tags", Tags);
 				document.put("AnswerCount", AnswerCount);
 				document.put("CommentCount", CommentCount);
+				document.put("FavoriteCount", FavoriteCount);
 				document.put("CommunityOwnedDate", CommunityOwnedDate);
 				stackoverflowCollectorObject.collectionPosts.insertOne(document);
 			} catch (Exception e) {
