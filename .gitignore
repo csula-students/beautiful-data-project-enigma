@@ -3,5 +3,4 @@
 .idea/
 build/
 *.env
-#file having the authentication key for twitter api
-/StreamSourceTwitter.java
+
