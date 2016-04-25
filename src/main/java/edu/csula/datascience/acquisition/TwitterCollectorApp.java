@@ -1,12 +1,9 @@
 package edu.csula.datascience.acquisition;
 
-<<<<<<< HEAD
 
-=======
 /**
  * Twitter Collector App for Enigma BigData Project.
  */
->>>>>>> homework2
 public class TwitterCollectorApp {
 	public static void main(String[] args) {
 		// Instantiating object of StreamSourceTwitter
