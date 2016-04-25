@@ -1,5 +1,6 @@
 package edu.csula.datascience.acquisition;
 
+
 import twitter4j.FilterQuery;
 import twitter4j.StallWarning;
 import twitter4j.Status;
@@ -12,18 +13,18 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class StreamSourceTwitter 
 {
-	TwitterCollector tc=new TwitterCollector();
+	TwitterCollector twitterCollector=new TwitterCollector();
 	
 	public void getStream()
 	{
-		ConfigurationBuilder cb = new ConfigurationBuilder();
-	    cb.setDebugEnabled(true);
-	    cb.setOAuthConsumerKey("ConsumerKey");
-	    cb.setOAuthConsumerSecret("ConsumerSecret");
-	    cb.setOAuthAccessToken("AccessToken");
-	    cb.setOAuthAccessTokenSecret("AccessTokenSecret");
+		ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
+	    configurationBuilder.setDebugEnabled(true);
+	    configurationBuilder.setOAuthConsumerKey("consumerkey");
+	    configurationBuilder.setOAuthConsumerSecret("consumerSecretkey");
+	    configurationBuilder.setOAuthAccessToken("accessToken");
+	    configurationBuilder.setOAuthAccessTokenSecret("accessTokenSecret");
 
-	    TwitterStream twitterStream = new TwitterStreamFactory(cb.build()).getInstance();
+	    TwitterStream twitterStream = new TwitterStreamFactory(configurationBuilder.build()).getInstance();
 
 	    StatusListener listener = new StatusListener() {
 
@@ -51,14 +52,38 @@ public class StreamSourceTwitter
 	            System.out.println(content +"\n");
 	            
 	         // Calling MUNGEE
-	            Boolean check=tc.mungee(profileLocation);
+	            Boolean check=twitterCollector.mungee(profileLocation);
 	         //check if it have valid location	            
 	            if(!check)
 	            {
-	            	tc.save(username, profileLocation, tweetId, content);
+	            	twitterCollector.save(username, profileLocation, tweetId, content);
 	            	System.out.println("SAVING!!!!!!!!");
 	            }
 	        }
+
+			@Override
+			public void onDeletionNotice(StatusDeletionNotice arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onScrubGeo(long arg0, long arg1) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onStallWarning(StallWarning arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onTrackLimitationNotice(int arg0) {
+				// TODO Auto-generated method stub
+				
+			}
 
 	      
 
