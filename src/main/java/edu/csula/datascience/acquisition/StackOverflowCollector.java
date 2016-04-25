@@ -16,8 +16,8 @@ public class StackOverflowCollector {
 		// establish database connection to MongoDB
 		mongoClient = new MongoClient();
 
-		// select `Enigma-database` as database
-		database = mongoClient.getDatabase("Enigma-database");
+		// select `EnigmaDatabase` as database
+		database = mongoClient.getDatabase("EnigmaDatabase");
 
 		// select collection by name `Tags`
 		collectionTags = database.getCollection("Tags");

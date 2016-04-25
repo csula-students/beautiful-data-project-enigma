@@ -18,11 +18,11 @@ public class TwitterCollector implements Collector<Status, Status> {
     public TwitterCollector() {
         // establish database connection to MongoDB
         mongoClient = new MongoClient();
-        // select `Enigma-BigData` as database
-        database = mongoClient.getDatabase("Enigma-database");
+        // select `EnigmaDatabase` as database
+        database = mongoClient.getDatabase("EnigmaDatabase");
 
-        // select collection by name `Tweetstreams`
-        collection = database.getCollection("Tweetstreams");
+        // select collection by name `tweetStreams`
+        collection = database.getCollection("tweetStreams");
     }
     // MUNGEE implementation
     @Override
