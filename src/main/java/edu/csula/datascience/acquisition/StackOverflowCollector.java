@@ -12,7 +12,7 @@ public class StackOverflowCollector {
 	MongoCollection<Document> collectionTags;
 	MongoCollection<Document> collectionPosts;
 	
-	public StackOverflowCollector() {
+	public StackOverflowCollector()  {
 		// establish database connection to MongoDB
 		mongoClient = new MongoClient();
 

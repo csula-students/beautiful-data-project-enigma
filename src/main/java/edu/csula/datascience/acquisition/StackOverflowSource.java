@@ -70,39 +70,4 @@ public class StackOverflowSource extends DefaultHandler {
 			System.out.println("End Element :" + qName);
 		}
 	}
-	/*
-	 * public static void tagsCollector() { // Initializing the database by
-	 * calling the constructor StackOverflowCollector
-	 * stackoverflowCollectorObject = new StackOverflowCollector(); String
-	 * filePath =
-	 * "D:/csula/Assignments/Spring-BigData-CS594/Project/data-sets/stackoverflow/stackoverflow.com-Tags/Tags.xml";
-	 * try { File inputFile = new File(filePath);
-	 * 
-	 * DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-	 * DocumentBuilder dBuilder = dbFactory.newDocumentBuilder(); // Parse the
-	 * file (using DOM) org.w3c.dom.Document doc = dBuilder.parse(inputFile);
-	 * 
-	 * doc.getDocumentElement().normalize(); System.out.println("Root element :"
-	 * + doc.getDocumentElement().getNodeName()); NodeList nList =
-	 * doc.getElementsByTagName("row");
-	 * System.out.println("----------------------------");
-	 * 
-	 * for (int temp = 0; temp < nList.getLength(); temp++) { Node nNode =
-	 * nList.item(temp); System.out.println("\nCurrent Element :" +
-	 * nNode.getNodeName()); if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-	 * Element eElement = (Element) nNode; Integer id =
-	 * Integer.parseInt(eElement.getAttribute("Id")); String TagName =
-	 * eElement.getAttribute("TagName"); String Count =
-	 * eElement.getAttribute("Count"); String ExcerptPostId =
-	 * eElement.getAttribute("ExcerptPostId"); String WikiPostId =
-	 * eElement.getAttribute("WikiPostId"); // inserting the parsed data into
-	 * the database org.bson.Document document = new Document();
-	 * document.put("Id", id); document.put("TagName", TagName);
-	 * document.put("Count", Count); document.put("ExcerptPostId",
-	 * ExcerptPostId); document.put("WikiPostId", WikiPostId);
-	 * stackoverflowCollectorObject.collectionTags.insertOne(document); } } }
-	 * catch (Exception e) { e.printStackTrace(); }
-	 * 
-	 * }
-	 * 
-	 */}
+}
