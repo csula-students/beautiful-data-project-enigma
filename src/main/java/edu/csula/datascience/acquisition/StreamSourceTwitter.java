@@ -52,13 +52,13 @@ public class StreamSourceTwitter
 	            System.out.println(content +"\n");
 	            
 	         // Calling MUNGEE
-	            Boolean check=twitterCollector.mungee(profileLocation);
+	          //  Boolean check=twitterCollector.mungee(profileLocation);
 	         //check if it have valid location	            
-	            if(!check)
+	     /*       if(!check)
 	            {
 	            	twitterCollector.save(username, profileLocation, tweetId, content);
 	            	System.out.println("SAVING!!!!!!!!");
-	            }
+	            }*/
 	        }
 
 			@Override

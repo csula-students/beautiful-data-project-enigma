@@ -1,4 +1,4 @@
-package edu.csula.datascience.examples;
+/*package edu.csula.datascience.examples;
 
 import com.google.common.collect.Lists;
 import io.searchbox.action.BulkableAction;
@@ -17,9 +17,9 @@ import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.util.Collection;
 
-/**
+*//**
  * A quick example app to send data to elastic search on AWS
- */
+ *//*
 public class JestExampleApp {
     public static void main(String[] args) throws URISyntaxException, IOException {
         String indexName = "bd-data";
@@ -122,3 +122,4 @@ public class JestExampleApp {
         }
     }
 }
+*/
