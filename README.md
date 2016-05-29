@@ -1,28 +1,26 @@
-# beautiful-data-project-enigma
-Q1.) What question(s) did you decide to work on as a team?
+# Data Science 2016
 
-Ans-We want to figure out what might be the next language that will trend up and why?
+[![Build Status](https://travis-ci.org/csula/datascience-spring-2016.svg?branch=master)](https://travis-ci.org/csula/datascience-spring-2016)
 
-Q2.) What is your data source(s)?
+Welcome to the Spring 2016 Data Science class!
 
-Ans-https://archive.org/details/stackexchange.
+As a future data analyst, you are responsible to **collect**, **store**, **analyze** and effectively **report** on data insight.
 
-Twitter live tweets API
+In this class, we will be learning how to clean up messy data, uncover patterns and insights to conclude or to make predictions. Moreover, we will be communicating our findings with beautiful visualization!
 
-Q3.) How long does it take for you to download data? Have you download complete data set?
+You are welcome to join the class [gitter chat room](https://gitter.im/csula/datascience-spring-2016).  In the interest of being efficient, we encourage everyone to ask questions publicly so that common questions can be answered once.
 
-Ans-It took us about 14 hours to download the entire data set from https://archive.org/details/stackexchange. 
-That is the complete data set we have from the stackexchange website.
-As for Twitter api, we are getting the real time data.
+In this quarter, we will publish all course materials on the Github and on [Gitbook][1].  This implies you **do not** need a textbook for the class as all required materials will be provided.
 
-Q4.) How large is your data (size wise and number of records wise)?
+> Please feel free to utilize Github issue or Gitbook comment to share your thoughts on the course throughout the quarter
 
-Ans-41 GB total raw data.
+[![Join the chat at https://gitter.im/csula/datascience-spring-2016](https://badges.gitter.im/csula/datascience-spring-2016.svg)](https://gitter.im/csula/datascience-spring-2016?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Q5.)Do you face any dirty data issue? If you do, how did you clean up your data?
+## Quick links
 
-Ans-Yes, data has some null value sometimes. We found some missing records and we have to manually remove them out.
+* [Announcements](announcements.md)
+* [Syllabus](syllabus.md)
+  * [Schedule](syllabus.md#course-schedule)
+* [Gitbook][1]
 
-Q6.) How do you store the data you downloaded?
-Ans-We store all the data in the mongoDB.
-
+[1]: https://www.gitbook.com/book/rcliao/datascience-spring-2016/
