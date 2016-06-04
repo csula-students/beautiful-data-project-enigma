@@ -7,11 +7,15 @@ import java.util.Collection;
  *
  * It should be able to download data from source and save data.
  */
-public interface Collector<T, R> {
+public interface Collector<T,R> {
     /**
      * Mungee method is to clean data. e.g. remove data rows with errors
      */
-    Collection<T> mungee(Collection<R> src);
+  /*  Collection<Status> mungee(Collection<Status> src);
 
-    void save(Collection<T> data);
+    void save(Collection<Status> data);*/
+    
+	Boolean mungee(String src);
+
+    void save(String username,String profilelocation,long tweetId,String post);
 }

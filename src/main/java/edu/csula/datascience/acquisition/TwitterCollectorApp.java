@@ -12,10 +12,6 @@ public class TwitterCollectorApp {
         TwitterSource source = new TwitterSource(Long.MAX_VALUE, "#bigdata");
         TwitterCollector collector = new TwitterCollector();
 
-        while (source.hasNext()) {
-            Collection<Status> tweets = source.next();
-            Collection<Status> cleanedTweets = collector.mungee(tweets);
-            collector.save(cleanedTweets);
-        }
+   
     }
 }

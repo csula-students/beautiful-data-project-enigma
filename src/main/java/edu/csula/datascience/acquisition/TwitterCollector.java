@@ -11,38 +11,43 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * An example of Collector implementation using Twitter4j with MongoDB Java driver
+ * An example of Collector implementation using Twitter4j with MongoDB Java
+ * driver
  */
 public class TwitterCollector implements Collector<Status, Status> {
-    MongoClient mongoClient;
-    MongoDatabase database;
-    MongoCollection<Document> collection;
-    public TwitterCollector() {
-        // establish database connection to MongoDB
-        mongoClient = new MongoClient();
+	MongoClient mongoClient;
+	MongoDatabase database;
+	MongoCollection<Document> collection;
 
-        // select `bd-example` as testing database
-        database = mongoClient.getDatabase("bd-example");
+	public TwitterCollector() {
+		// establish database connection to MongoDB
+		mongoClient = new MongoClient();
+		// select `EnigmaDatabase` as database
+		database = mongoClient.getDatabase("EnigmaDatabase");
 
-        // select collection by name `tweets`
-        collection = database.getCollection("tweets");
-    }
-    @Override
-    public Collection<Status> mungee(Collection<Status> src) {
-        return src;
-    }
+		// select collection by name `tweetStreams`
+		collection = database.getCollection("tweetStreams");
+	}
 
-    @Override
-    public void save(Collection<Status> data) {
-        List<Document> documents = data.stream()
-            .map(item -> new Document()
-                .append("tweetId", item.getId())
-                .append("username", item.getUser().getName())
-                .append("text", item.getText())
-                .append("lang", item.getLang())
-                .append("source", item.getSource()))
-            .collect(Collectors.toList());
+	// MUNGEE implementation
+	@Override
+	public Boolean mungee(String src) {
+		if (src.equals(null)) {
+			return true;
+		} else
+			return false;
+	}
 
-        collection.insertMany(documents);
-    }
+	// Saving document in MongoDB
+	@Override
+	public void save(String username, String profilelocation, long tweetId, String post) {
+		Document document = new Document();
+		document.put("TweetId", tweetId);
+		document.put("Username", username);
+		document.put("ProfileLocation", profilelocation);
+		document.put("Content", post);
+		collection.insertOne(document);
+
+	}
+
 }
