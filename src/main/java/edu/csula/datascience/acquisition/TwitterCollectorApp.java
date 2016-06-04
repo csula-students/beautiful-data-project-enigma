@@ -1,14 +1,17 @@
 package edu.csula.datascience.acquisition;
 
+import twitter4j.Status;
+
+import java.util.Collection;
+
 /**
- * Twitter Collector App for Enigma BigData Project.
+ * A simple example of using Twitter
  */
 public class TwitterCollectorApp {
-	public static void main(String[] args) {
-		// Instantiating object of StreamSourceTwitter
-		StreamSourceTwitter streamSourceTwitter = new StreamSourceTwitter();
-		// Calling StreamSourceTwitter method getStream()
-		streamSourceTwitter.getStream();
+    public static void main(String[] args) {
+        TwitterSource source = new TwitterSource(Long.MAX_VALUE, "#bigdata");
+        TwitterCollector collector = new TwitterCollector();
 
-	}
+   
+    }
 }

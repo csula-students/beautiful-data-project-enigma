@@ -1,17 +1,11 @@
 package edu.csula.datascience.acquisition;
 
+import com.google.common.collect.Lists;
+import twitter4j.*;
+import twitter4j.conf.ConfigurationBuilder;
+
 import java.util.Collection;
 import java.util.List;
-
-import com.google.common.collect.Lists;
-
-import twitter4j.Query;
-import twitter4j.QueryResult;
-import twitter4j.Status;
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
-import twitter4j.conf.ConfigurationBuilder;
 
 /**
  * An example of Source implementation using Twitter4j api to grab tweets
@@ -35,10 +29,10 @@ public class TwitterSource implements Source<Status> {
         List<Status> list = Lists.newArrayList();
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-            .setOAuthConsumerKey(("kXzLwthD4WoBOlUi59t6m410M"))
-            .setOAuthConsumerSecret(("DiPfltnNIFV0HVqRxnVbtqhlUYgtRBH6HzoEnYzGKj70kKy8Xo"))
-            .setOAuthAccessToken(("1691505486-UlLCYLfHPpkz3vUUeRJT3LC0zcezJTZ0Y9zcgSC"))
-            .setOAuthAccessTokenSecret(("FxczETXNLCphIilnkWk0DN1sBjZ7PwyECkoaJcoa7CNdN"));
+            .setOAuthConsumerKey(System.getenv("TWITTER_CONSUMER_KEY"))
+            .setOAuthConsumerSecret(System.getenv("TWITTER_CONSUMER_SECRET"))
+            .setOAuthAccessToken(System.getenv("TWITTER_ACCESS_TOKEN"))
+            .setOAuthAccessTokenSecret(System.getenv("TWITTER_ACCESS_SECRET"));
         TwitterFactory tf = new TwitterFactory(cb.build());
         Twitter twitter = tf.getInstance();
 
@@ -48,18 +42,13 @@ public class TwitterSource implements Source<Status> {
         if (minId != Long.MAX_VALUE) {
             query.setMaxId(minId);
         }
-        System.out.println();
-        try {
-			list.addAll(getTweets(twitter, query));
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+        list.addAll(getTweets(twitter, query));
 
         return list;
     }
 
-    private List<Status> getTweets(Twitter twitter, Query query) throws InterruptedException {
+    private List<Status> getTweets(Twitter twitter, Query query) {
         QueryResult result;
         List<Status> list = Lists.newArrayList();
         try {
@@ -69,10 +58,8 @@ public class TwitterSource implements Source<Status> {
                 List<Status> tweets = result.getTweets();
                 for (Status tweet : tweets) {
                     minId = Math.min(minId, tweet.getId());
-                    System.out.println("data "+tweet.getText());
                 }
                 list.addAll(tweets);
-                Thread.sleep(5000);
             } while ((query = result.nextQuery()) != null);
         } catch (TwitterException e) {
             // Catch exception to handle rate limit and retry
