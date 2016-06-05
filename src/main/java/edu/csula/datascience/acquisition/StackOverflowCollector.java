@@ -7,12 +7,12 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 public class StackOverflowCollector {
-	MongoClient mongoClient;
+	/*MongoClient mongoClient;
 	MongoDatabase database;
 	MongoCollection<Document> collectionTags;
 	MongoCollection<Document> collectionPosts;
 	
-	public StackOverflowCollector() {
+	public StackOverflowCollector()  {
 		// establish database connection to MongoDB
 		mongoClient = new MongoClient();
 
@@ -23,7 +23,10 @@ public class StackOverflowCollector {
 		collectionTags = database.getCollection("Tags");
 		// collection for posts
 		collectionPosts = database.getCollection("Posts");
+		
+		*/
+		
 	}
 
 	
-	}
+	
