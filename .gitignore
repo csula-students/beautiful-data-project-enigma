@@ -1,7 +1,7 @@
 # Gradle related files
 .gradle/
 .idea/
-build/
+*.class
 *.env
 #file containing authentication key added to gitignore
 src/main/java/edu/csula/datascience/acquisition/StreamSourceTwitter.java
