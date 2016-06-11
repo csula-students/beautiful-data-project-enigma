@@ -8,7 +8,7 @@ import javax.xml.parsers.SAXParserFactory;
 public class StackOverflowCollectorApp {
 	public static void main(String[] args) {
 		// file path
-		String filePath = "D:/csula/Assignments/Spring-BigData-CS594/Project/data-sets/stackoverflow/stackoverflow.com-Posts/Posts.xml";
+		String filePath = "D:/csula/Assignments/Spring-BigData-CS594/Project/data-sets/stackoverflow/Posts.xml";
 
 		try {
 			/*
